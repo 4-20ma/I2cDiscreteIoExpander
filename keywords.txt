@@ -1,0 +1,43 @@
+#######################################
+# Syntax Coloring Map For i2c_dio_pcf8575c
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+i2c_dio_pcf8575c	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+BOUND	KEYWORD2
+
+begin	KEYWORD2
+
+id	KEYWORD2
+digitalRead	KEYWORD2
+digitalWrite	KEYWORD2
+enableBitwiseInversion	KEYWORD2
+disableBitwiseInversion	KEYWORD2
+isInverted	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+data	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ku8DeviceID0	LITERAL1
+ku8DeviceID1	LITERAL1
+ku8DeviceID2	LITERAL1
+ku8DeviceID3	LITERAL1
+ku8DeviceID4	LITERAL1
+ku8DeviceID5	LITERAL1
+ku8DeviceID6	LITERAL1
+ku8DeviceID7	LITERAL1
