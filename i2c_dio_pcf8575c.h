@@ -1,7 +1,5 @@
-/**
-@file
-Arduino library for TI PCF8575C 16-bit I2C I/O expander.
-*/
+/// \file
+/// Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 /*
   
   i2c_dio_pcf8575c.h Arduino library for TI PCF8575C 16-bit I2C I/O expander
@@ -99,12 +97,14 @@ class i2c_dio_pcf8575c
     void     disableBitwiseInversion();
     bool     isInverted();
     
-    /**
-    Storage object for state of PCF8575C.
-    */
     // ........................................ static public member functions
     
     // ..................................................... public attributes
+    /// Storage object for state of PCF8575C.
+    /// \par Usage:
+    /// \code
+    /// ...
+    /// \endcode
     uint16_t data;
     
     // .............................................. static public attributes
@@ -193,8 +193,5 @@ class i2c_dio_pcf8575c
     bool _bInvert;
 };
 #endif
-
-/**
-@example examples/PCF8575C_example/PCF8575C_example.pde
-@example examples/Marching_ants_example/Marching_ants_example.pde
-*/
+/// \example examples/PCF8575C_example/PCF8575C_example.pde
+/// \example examples/Marching_ants_example/Marching_ants_example.pde
