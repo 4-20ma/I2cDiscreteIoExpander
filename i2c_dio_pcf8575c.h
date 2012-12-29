@@ -33,7 +33,11 @@ Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 
 // _________________________________________________________ STANDARD INCLUDES
 // include types & constants of Wiring core API
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
 #include "WProgram.h"
+#endif
 
 
 // __________________________________________________________ PROJECT INCLUDES
