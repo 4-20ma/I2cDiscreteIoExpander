@@ -31,23 +31,25 @@ Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 #define i2c_dio_pcf8575c_h
 
 
-/* _____STANDARD INCLUDES____________________________________________________ */
+// _________________________________________________________ STANDARD INCLUDES
 // include types & constants of Wiring core API
 #include "WProgram.h"
 
+
+// __________________________________________________________ PROJECT INCLUDES
 // include twi/i2c library
 #include <Wire.h>
 
 
-/* _____UTILITY MACROS_______________________________________________________ */
+// ____________________________________________________________ UTILITY MACROS
 
-/* _____CLASS DEFINITIONS____________________________________________________ */
 /**
 Arduino class library for TI PCF8575C 16-bit I2C I/O expander.
 
 The PCF8575C provides general-purpose remote I/O expansion for most 
 microcontroller families via the I2C interface serial clock (SCL) and 
 serial data (SDA). 
+// _________________________________________________________________ CONSTANTS
 
 The device features a 16-bit quasi-bidirectional input/output (I/O) port 
 (P07..P00, P17..P10), including latched outputs with high-current drive 
@@ -67,9 +69,11 @@ current (IOL) flows to GND.
 @date 7 Feb 2010
 @note I2C: SDA --> pin 4; SCL --> pin 5
 */
+// _________________________________________________________ CLASS DEFINITIONS
 class i2c_dio_pcf8575c
 {
   public:
+    // ............................................... public member functions
     i2c_dio_pcf8575c();
     
     void     begin(uint8_t);
@@ -85,7 +89,12 @@ class i2c_dio_pcf8575c
     /**
     Storage object for state of PCF8575C.
     */
+    // ........................................ static public member functions
+    
+    // ..................................................... public attributes
     uint16_t data;
+    
+    // .............................................. static public attributes
     
     /**
     I2C address offset for PCF8575C module (A2=0, A1=0, A0=0).
@@ -148,6 +157,13 @@ class i2c_dio_pcf8575c
     static const uint8_t ku8TWIError                     = 4;
     
   private:
+    // .............................................. private member functions
+    
+    // ....................................... static private member functions
+    
+    // .................................................... private attributes
+    
+    // ............................................. static private attributes
     /**
     I2C base address for the PCF8575C module.
     */
