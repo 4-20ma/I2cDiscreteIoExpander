@@ -12,8 +12,6 @@ i2c_dio_pcf8575c	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-BOUND	KEYWORD2
-
 begin	KEYWORD2
 
 id	KEYWORD2

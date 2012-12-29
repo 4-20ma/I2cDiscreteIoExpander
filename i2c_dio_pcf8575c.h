@@ -40,12 +40,6 @@ Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 
 
 /* _____UTILITY MACROS_______________________________________________________ */
-/**
-@def BOUND(Value,Min,Max).
-Macro to check if a value is within bounds (Min <= Value <= Max ?)
-*/
-#define BOUND(Value,Min,Max)    (((Value)>=(Min))&&((Value)<=(Max)))
-
 
 /* _____CLASS DEFINITIONS____________________________________________________ */
 /**
