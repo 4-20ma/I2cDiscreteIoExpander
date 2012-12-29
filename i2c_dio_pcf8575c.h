@@ -109,6 +109,7 @@ class i2c_dio_pcf8575c
     
     // .............................................. static public attributes
     
+    /// \todo move constants outside of class per ADS828
     /**
     I2C address offset for PCF8575C module (A2=0, A1=0, A0=0).
     */
@@ -180,12 +181,13 @@ class i2c_dio_pcf8575c
     /**
     I2C base address for the PCF8575C module.
     */
+    // \todo: rename to BASE_ADDRESS_
     static const uint8_t _ku8BaseAddress                 = 0x20;
     
     /**
     Device ID (set by pins A2, A1, A0).
     */
-    uint8_t _u8DeviceID;
+    uint8_t _u8DeviceID; // \todo rename to address_
     
     /**
     Flag indicating whether bits are to be inverted before read/write (false=don't invert, true=invert).
