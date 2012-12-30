@@ -13,7 +13,7 @@ end
 
 # adjust as appropriate
 GITHUB_USERNAME = '4-20ma'
-GITHUB_REPO     = 'i2c_dio_pcf8575'
+GITHUB_REPO     = 'i2c_dio_pcf8575c'
 HEADER_FILE     = "#{GITHUB_REPO}.h"
 HISTORY_FILE    = 'HISTORY.markdown'
 VERSION_FILE    = Version.version_file('').basename.to_s
