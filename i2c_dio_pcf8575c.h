@@ -109,9 +109,6 @@ class I2cIoExpander
 {
   public:
     // ............................................... public member functions
-    
-    void     begin(uint8_t);
-    void     begin();
     I2cIoExpander(uint8_t);
     I2cIoExpander();
     uint8_t  digitalRead();
