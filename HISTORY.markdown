@@ -1,3 +1,9 @@
+## [v2.0.0 (2013-01-01)](/4-20ma/I2cDiscreteIoExpander/tree/v2.0.0)
+- Rename I2cDiscreteIoExpander.{cpp, h} files
+- Update copyright year
+- Rename class I2cDiscreteIoExpander
+
+---
 ## [v1.0.1 (2012-12-31)](/4-20ma/I2cDiscreteIoExpander/tree/v1.0.1)
 - Remove redundant text from README
 

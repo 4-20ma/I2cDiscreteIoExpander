@@ -50,7 +50,7 @@
 /// in any combination, to share the same I2C bus or SMBus.
 /// \author Doc Walker
 /// \version \verbinclude VERSION
-/// \date 31 Dec 2012
+/// \date 1 Jan 2013
 /// \copyright GNU General Public License v3
 /// \par Arduino IDE:
 ///   Requires Arduino 1.0 or later
