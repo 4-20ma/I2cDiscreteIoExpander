@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "I2cIoExpander", "index.html", [
+  [ "I2cDiscreteIoExpander", "index.html", [
     [ "Arduino library for TI PCF8575C 16-bit I2C I/O expander.", "index.html", null ],
     [ "Optional Functions List (Troubleshooting)", "optional.html", null ],
     [ "Required Functions List", "required.html", null ],

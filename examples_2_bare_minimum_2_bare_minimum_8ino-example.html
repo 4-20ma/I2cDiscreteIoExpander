@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>I2cIoExpander: examples/BareMinimum/BareMinimum.ino</title>
+<title>I2cDiscreteIoExpander: examples/BareMinimum/BareMinimum.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">I2cIoExpander
+   <div id="projectname">I2cDiscreteIoExpander
    </div>
    <div id="projectbrief">Arduino library for TI PCF8575C 16-bit I2C I/O expander.</div>
   </td>
@@ -62,35 +62,35 @@ $(document).ready(function(){initNavTree('examples_2_bare_minimum_2_bare_minimum
 <div class="contents">
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  BareMinimum.ino - example using I2cIoExpander library</span></div>
+<div class="line"><span class="comment">  BareMinimum.ino - example using I2cDiscreteIoExpander library</span></div>
 <div class="line"><span class="comment">  </span></div>
-<div class="line"><span class="comment">  This file is part of I2cIoExpander.</span></div>
+<div class="line"><span class="comment">  This file is part of I2cDiscreteIoExpander.</span></div>
 <div class="line"><span class="comment">  </span></div>
-<div class="line"><span class="comment">  I2cIoExpander is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><span class="comment">  I2cDiscreteIoExpander is free software: you can redistribute it and/or modify</span></div>
 <div class="line"><span class="comment">  it under the terms of the GNU General Public License as published by</span></div>
 <div class="line"><span class="comment">  the Free Software Foundation, either version 3 of the License, or</span></div>
 <div class="line"><span class="comment">  (at your option) any later version.</span></div>
 <div class="line"><span class="comment">  </span></div>
-<div class="line"><span class="comment">  I2cIoExpander is distributed in the hope that it will be useful,</span></div>
+<div class="line"><span class="comment">  I2cDiscreteIoExpander is distributed in the hope that it will be useful,</span></div>
 <div class="line"><span class="comment">  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
 <div class="line"><span class="comment">  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
 <div class="line"><span class="comment">  GNU General Public License for more details.</span></div>
 <div class="line"><span class="comment">  </span></div>
 <div class="line"><span class="comment">  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><span class="comment">  along with I2cIoExpander.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><span class="comment">  along with I2cDiscreteIoExpander.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><span class="comment">  </span></div>
 <div class="line"><span class="comment">  Written by Doc Walker (Rx)</span></div>
-<div class="line"><span class="comment">  Copyright © 2009-2012 Doc Walker &lt;4-20ma at wvfans dot net&gt;</span></div>
+<div class="line"><span class="comment">  Copyright © 2009-2013 Doc Walker &lt;4-20ma at wvfans dot net&gt;</span></div>
 <div class="line"><span class="comment">  </span></div>
 <div class="line"><span class="comment">*/</span></div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;Wire.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;I2cIoExpander.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;I2cDiscreteIoExpander.h&gt;</span></div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line"><span class="comment">// instantiate I2cIoExpander object</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_i2c_io_expander.html">I2cIoExpander</a> device;</div>
+<div class="line"><span class="comment">// instantiate I2cDiscreteIoExpander object</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_i2c_discrete_io_expander.html">I2cDiscreteIoExpander</a> device;</div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup()</div>
@@ -112,12 +112,12 @@ $(document).ready(function(){initNavTree('examples_2_bare_minimum_2_bare_minimum
 <div class="line">  Serial.print(<span class="stringliteral">&quot;Loop &quot;</span>);</div>
 <div class="line">  Serial.print(++i, DEC);</div>
 <div class="line">  Serial.print(<span class="stringliteral">&quot;, address &quot;</span>);</div>
-<div class="line">  Serial.print(device.<a name="a1"></a><a class="code" href="class_i2c_io_expander.html#a239df6d491735635cdfe458411d6b376" title="Retrieve device address.">getAddress</a>(), DEC);</div>
+<div class="line">  Serial.print(device.<a name="a1"></a><a class="code" href="class_i2c_discrete_io_expander.html#a77a1dc175b040b1f15deb9b1c0f72436" title="Retrieve device address.">getAddress</a>(), DEC);</div>
 <div class="line">  Serial.print(<span class="stringliteral">&quot;, &quot;</span>);</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// attempt to write 16-bit word</span></div>
-<div class="line">  status = device.<a name="a2"></a><a class="code" href="class_i2c_io_expander.html#ab93d71c6d6c2d6a7530f7bcab0f37f39" title="Write discrete values to device.">digitalWrite</a>(i);</div>
-<div class="line">  <span class="keywordflow">if</span> (<a name="a3"></a><a class="code" href="class_i2c_io_expander.html#ad1098eca0ca1599a00845be529f10aea" title="I2C/TWI success (transaction was successful).">TWI_SUCCESS</a> == status)</div>
+<div class="line">  status = device.<a name="a2"></a><a class="code" href="class_i2c_discrete_io_expander.html#ac658381413660aab36eb1d7b4686b55f" title="Write discrete values to device.">digitalWrite</a>(i);</div>
+<div class="line">  <span class="keywordflow">if</span> (<a name="a3"></a><a class="code" href="class_i2c_discrete_io_expander.html#ad1098eca0ca1599a00845be529f10aea" title="I2C/TWI success (transaction was successful).">TWI_SUCCESS</a> == status)</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// display success information on serial console</span></div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;write 0x&quot;</span>);</div>
@@ -133,12 +133,12 @@ $(document).ready(function(){initNavTree('examples_2_bare_minimum_2_bare_minimum
 <div class="line">  }</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// attempt to read 16-bit word</span></div>
-<div class="line">  status = device.<a name="a4"></a><a class="code" href="class_i2c_io_expander.html#a05301133253fb4becb173e86ba869d0e" title="Retrieve discrete values from device.">digitalRead</a>();</div>
-<div class="line">  <span class="keywordflow">if</span> (<a class="code" href="class_i2c_io_expander.html#ad1098eca0ca1599a00845be529f10aea" title="I2C/TWI success (transaction was successful).">TWI_SUCCESS</a> == status)</div>
+<div class="line">  status = device.<a name="a4"></a><a class="code" href="class_i2c_discrete_io_expander.html#a937bd05442622ec4d0d0e14af2086b42" title="Retrieve discrete values from device.">digitalRead</a>();</div>
+<div class="line">  <span class="keywordflow">if</span> (<a class="code" href="class_i2c_discrete_io_expander.html#ad1098eca0ca1599a00845be529f10aea" title="I2C/TWI success (transaction was successful).">TWI_SUCCESS</a> == status)</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// display success information on serial console</span></div>
 <div class="line">    Serial.print(<span class="stringliteral">&quot;read 0x&quot;</span>);</div>
-<div class="line">    Serial.print(device.<a name="a5"></a><a class="code" href="class_i2c_io_expander.html#a32a42e6b8e1655cd839639655725557a" title="Retrieve ports 1 (P17..P10), 0 (P07..P00).">getPorts</a>(), HEX);</div>
+<div class="line">    Serial.print(device.<a name="a5"></a><a class="code" href="class_i2c_discrete_io_expander.html#adcf16c718b335539b47785e71897071a" title="Retrieve ports 1 (P17..P10), 0 (P07..P00).">getPorts</a>(), HEX);</div>
 <div class="line">    Serial.println(<span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line">  }</div>
 <div class="line">  <span class="keywordflow">else</span></div>
