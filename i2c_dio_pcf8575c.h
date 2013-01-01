@@ -52,6 +52,8 @@
 /// \version \verbinclude VERSION
 /// \date 29 Dec 2012
 /// \copyright GNU General Public License v3
+/// \par Arduino IDE:
+///   Requires Arduino 1.0 or later
 /// \par Source Code Repository:
 ///   https://github.com/4-20ma/I2cIoExpander
 /// \par Programming Style Guidelines:
@@ -67,9 +69,9 @@
 // _________________________________________________________ STANDARD INCLUDES
 // include types & constants of Wiring core API
 #if defined(ARDUINO) && ARDUINO >= 100
-#include "Arduino.h"
+#include <Arduino.h>
 #else
-#include "WProgram.h"
+#error Arduino 1.0 or later is required.
 #endif
 
 
