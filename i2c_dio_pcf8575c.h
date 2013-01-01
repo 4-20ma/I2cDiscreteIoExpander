@@ -112,9 +112,9 @@ class I2cIoExpander
     I2cIoExpander(uint8_t);
     I2cIoExpander();
     uint8_t  digitalRead();
-    uint8_t  digitalWrite();
     uint8_t  digitalWrite(uint16_t);
-    uint8_t  id();
+    uint8_t  getAddress();
+    uint16_t getPorts();
     void     enableBitwiseInversion();
     void     disableBitwiseInversion();
     bool     isInverted();
@@ -122,12 +122,6 @@ class I2cIoExpander
     // ........................................ static public member functions
     
     // ..................................................... public attributes
-    /// Storage object for state of PCF8575C.
-    /// \par Usage:
-    /// \code
-    /// ...
-    /// \endcode
-    uint16_t data;
     
     // .............................................. static public attributes
     
@@ -137,24 +131,19 @@ class I2cIoExpander
     // ....................................... static private member functions
     
     // .................................................... private attributes
+    /// Device address as defined by pins A2, A1, A0.
+    uint8_t address_;
+    
+    /// Storage object for I2cIoExpander ports 1 (P17..P10), 0 (P07..P00).
+    uint16_t ports_;
+    
+    /// Flag indicating whether bits are to be inverted before read/write (false=don't invert, true=invert).
+    bool shouldInvert_;
     
     // ............................................. static private attributes
-    /**
-    I2C base address for the PCF8575C module.
-    */
-    // \todo: rename to BASE_ADDRESS_
-    static const uint8_t _ku8BaseAddress                 = 0x20;
-    
-    /**
-    Device ID (set by pins A2, A1, A0).
-    */
-    uint8_t _u8DeviceID; // \todo rename to address_
-    
-    /**
-    Flag indicating whether bits are to be inverted before read/write (false=don't invert, true=invert).
-    */
-    bool _bInvert;
+    /// Factory pre-set slave address.
+    static const uint8_t BASE_ADDRESS_ = 0x20;
 };
-/// \example examples/PCF8575C_example/PCF8575C_example.pde
-/// \example examples/Marching_ants_example/Marching_ants_example.pde
 #endif // I2C_IO_EXPANDER_h
+/// \example examples/BareMinimum/BareMinimum.ino
+/// \example examples/MultipleDevices/MultipleDevices.ino

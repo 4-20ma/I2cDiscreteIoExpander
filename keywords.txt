@@ -12,9 +12,10 @@ I2cIoExpander	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-id	KEYWORD2
 digitalRead	KEYWORD2
 digitalWrite	KEYWORD2
+getAddress	KEYWORD2
+getPorts	KEYWORD2
 enableBitwiseInversion	KEYWORD2
 disableBitwiseInversion	KEYWORD2
 isInverted	KEYWORD2
@@ -22,8 +23,6 @@ isInverted	KEYWORD2
 #######################################
 # Instances (KEYWORD2)
 #######################################
-
-data	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
