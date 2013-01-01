@@ -43,7 +43,11 @@
 /// can be used as inputs. Any change in setting of the I/Os as either
 /// inputs or outputs can be done with the write mode. If a high is applied
 /// externally to an I/O that has been written earlier to low, a large
-/// current (IOL) flows to GND.
+/// current (IOL) flows to GND.<br>
+/// 
+/// The fixed I2C address of the PCF8575C is the same as the PCF8575,
+/// PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices,
+/// in any combination, to share the same I2C bus or SMBus.
 /// \author Doc Walker
 /// \version \verbinclude VERSION
 /// \date 29 Dec 2012
