@@ -84,6 +84,24 @@
 
 
 // _________________________________________________________________ CONSTANTS
+/// I2C/TWI success (transaction was successful).
+/// \relates I2cIoExpander
+static const uint8_t TWI_SUCCESS      = 0;
+
+
+/// I2C/TWI device not present (address sent, NACK received).
+/// \relates I2cIoExpander
+static const uint8_t TWI_DEVICE_NACK  = 2;
+
+
+/// I2C/TWI data not received (data sent, NACK received).
+/// \relates I2cIoExpander
+static const uint8_t TWI_DATA_NACK    = 3;
+
+
+/// I2C/TWI other error.
+/// \relates I2cIoExpander
+static const uint8_t TWI_ERROR        = 4;
 
 
 // _________________________________________________________ CLASS DEFINITIONS
@@ -115,67 +133,6 @@ class I2cIoExpander
     uint16_t data;
     
     // .............................................. static public attributes
-    
-    /// \todo move constants outside of class per ADS828
-    /**
-    I2C address offset for PCF8575C module (A2=0, A1=0, A0=0).
-    */
-    static const uint8_t ku8DeviceID0                    = 0b000;
-    
-    /**
-    I2C address offset for PCF8575C module (A2=0, A1=0, A0=1).
-    */
-    static const uint8_t ku8DeviceID1                    = 0b001;
-    
-    /**
-    I2C address offset for PCF8575C module (A2=0, A1=1, A0=0).
-    */
-    static const uint8_t ku8DeviceID2                    = 0b010;
-    
-    /**
-    I2C address offset for PCF8575C module (A2=0, A1=1, A0=1).
-    */
-    static const uint8_t ku8DeviceID3                    = 0b011;
-    
-    /**
-    I2C address offset for PCF8575C module (A2=1, A1=0, A0=0).
-    */
-    static const uint8_t ku8DeviceID4                    = 0b100;
-    
-    /**
-    I2C address offset for PCF8575C module (A2=1, A1=0, A0=1).
-    */
-    static const uint8_t ku8DeviceID5                    = 0b101;
-    
-    /**
-    I2C address offset for PCF8575C module (A2=1, A1=1, A0=0).
-    */
-    static const uint8_t ku8DeviceID6                    = 0b110;
-    
-    /**
-    I2C address offset for PCF8575C module (A2=1, A1=1, A0=1).
-    */
-    static const uint8_t ku8DeviceID7                    = 0b111;
-    
-    /**
-    I2C/TWI success (transaction was successful).
-    */
-    static const uint8_t ku8TWISuccess                   = 0;
-    
-    /**
-    I2C/TWI device not present (address sent, NACK received).
-    */
-    static const uint8_t ku8TWIDeviceNACK                = 2;
-    
-    /**
-    I2C/TWI data not received (data sent, NACK received).
-    */
-    static const uint8_t ku8TWIDataNACK                  = 3;
-    
-    /**
-    I2C/TWI other error.
-    */
-    static const uint8_t ku8TWIError                     = 4;
     
   private:
     // .............................................. private member functions
