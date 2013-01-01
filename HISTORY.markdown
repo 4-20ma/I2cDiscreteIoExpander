@@ -1,3 +1,7 @@
+## [v1.0.1 (2012-12-31)](/4-20ma/I2cIoExpander/tree/v1.0.1)
+- Remove redundant text from README
+
+---
 ## [v1.0.0 (2012-12-31)](/4-20ma/I2cIoExpander/tree/v1.0.0)
 - Add documentation
 - Add blank HISTORY.markdown
