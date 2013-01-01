@@ -1,12 +1,12 @@
 #######################################
-# Syntax Coloring Map For I2cIoExpander
+# Syntax Coloring Map For I2cDiscreteIoExpander
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-I2cIoExpander	KEYWORD1
+I2cDiscreteIoExpander	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

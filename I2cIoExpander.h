@@ -2,22 +2,22 @@
 /// Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 /*
   
-  I2cIoExpander.h Arduino library for TI PCF8575C 16-bit I2C I/O expander
+  I2cDiscreteIoExpander.h Arduino library for TI PCF8575C 16-bit I2C I/O expander
   
-  This file is part of I2cIoExpander.
+  This file is part of I2cDiscreteIoExpander.
   
-  I2cIoExpander is free software: you can redistribute it and/or modify
+  I2cDiscreteIoExpander is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
   
-  I2cIoExpander is distributed in the hope that it will be useful,
+  I2cDiscreteIoExpander is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
   
   You should have received a copy of the GNU General Public License
-  along with I2cIoExpander.  If not, see <http://www.gnu.org/licenses/>.
+  along with I2cDiscreteIoExpander.  If not, see <http://www.gnu.org/licenses/>.
   
   Written by Doc Walker (Rx)
   Copyright © 2009-2012 Doc Walker <4-20ma at wvfans dot net>
@@ -55,15 +55,15 @@
 /// \par Arduino IDE:
 ///   Requires Arduino 1.0 or later
 /// \par Source Code Repository:
-///   https://github.com/4-20ma/I2cIoExpander
+///   https://github.com/4-20ma/I2cDiscreteIoExpander
 /// \par Programming Style Guidelines:
 ///   http://geosoft.no/development/cppstyle.html
 /// \par Schematic:
 ///   \verbinclude SCHEMATIC
 
 
-#ifndef I2C_IO_EXPANDER_h
-#define I2C_IO_EXPANDER_h
+#ifndef I2C_DISCRETE_IO_EXPANDER_H
+#define I2C_DISCRETE_IO_EXPANDER_H
 
 
 // _________________________________________________________ STANDARD INCLUDES
@@ -85,32 +85,32 @@
 
 // _________________________________________________________________ CONSTANTS
 /// I2C/TWI success (transaction was successful).
-/// \relates I2cIoExpander
+/// \relates I2cDiscreteIoExpander
 static const uint8_t TWI_SUCCESS      = 0;
 
 
 /// I2C/TWI device not present (address sent, NACK received).
-/// \relates I2cIoExpander
+/// \relates I2cDiscreteIoExpander
 static const uint8_t TWI_DEVICE_NACK  = 2;
 
 
 /// I2C/TWI data not received (data sent, NACK received).
-/// \relates I2cIoExpander
+/// \relates I2cDiscreteIoExpander
 static const uint8_t TWI_DATA_NACK    = 3;
 
 
 /// I2C/TWI other error.
-/// \relates I2cIoExpander
+/// \relates I2cDiscreteIoExpander
 static const uint8_t TWI_ERROR        = 4;
 
 
 // _________________________________________________________ CLASS DEFINITIONS
-class I2cIoExpander
+class I2cDiscreteIoExpander
 {
   public:
     // ............................................... public member functions
-    I2cIoExpander(uint8_t);
-    I2cIoExpander();
+    I2cDiscreteIoExpander(uint8_t);
+    I2cDiscreteIoExpander();
     uint8_t  digitalRead();
     uint8_t  digitalWrite(uint16_t);
     uint8_t  getAddress();
@@ -134,7 +134,7 @@ class I2cIoExpander
     /// Device address as defined by pins A2, A1, A0.
     uint8_t address_;
     
-    /// Storage object for I2cIoExpander ports 1 (P17..P10), 0 (P07..P00).
+    /// Storage object for I2cDiscreteIoExpander ports 1 (P17..P10), 0 (P07..P00).
     uint16_t ports_;
     
     /// Flag indicating whether bits are to be inverted before read/write (false=don't invert, true=invert).
@@ -144,6 +144,6 @@ class I2cIoExpander
     /// Factory pre-set slave address.
     static const uint8_t BASE_ADDRESS_ = 0x20;
 };
-#endif // I2C_IO_EXPANDER_h
+#endif // I2C_DISCRETE_IO_EXPANDER_H
 /// \example examples/BareMinimum/BareMinimum.ino
 /// \example examples/MultipleDevices/MultipleDevices.ino

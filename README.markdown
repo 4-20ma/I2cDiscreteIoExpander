@@ -17,7 +17,7 @@ Determine the location of your sketchbook by selecting _File > Preferences_ from
 Note: Arduino 1.0 or later is required.
 
 ## Support
-Full [source code documentation](http://4-20ma.github.com/I2cIoExpander/) is available. Please report any bugs on the [Issue Tracker](/4-20ma/I2cIoExpander/issues).
+Full [source code documentation](http://4-20ma.github.com/I2cDiscreteIoExpander/) is available. Please report any bugs on the [Issue Tracker](/4-20ma/I2cDiscreteIoExpander/issues).
 
 ## Questions/Feedback
 I can be contacted at 4-20ma at wvfans dot net.
@@ -65,15 +65,15 @@ o------o|12 GND   P10 13|o-     |
 ```
 
 ## Example
-The library contains sketches that demonstrates use of the I2cIoExpander library. You can find these in the [examples](/4-20ma/I2cIoExpander/tree/master/examples/) folder.
+The library contains sketches that demonstrates use of the I2cDiscreteIoExpander library. You can find these in the [examples](/4-20ma/I2cDiscreteIoExpander/tree/master/examples/) folder.
 
 ```c++
 #include <Wire.h>
-#include <I2cIoExpander.h>
+#include <I2cDiscreteIoExpander.h>
 
 
-// instantiate I2cIoExpander object
-I2cIoExpander device;
+// instantiate I2cDiscreteIoExpander object
+I2cDiscreteIoExpander device;
 
 
 void setup()

@@ -1,21 +1,21 @@
 /*
   
-  I2cIoExpander.cpp - Arduino library for TI PCF8575C 16-bit I2C I/O expander
+  I2cDiscreteIoExpander.cpp - Arduino library for TI PCF8575C 16-bit I2C I/O expander
   
-  This file is part of I2cIoExpander.
+  This file is part of I2cDiscreteIoExpander.
   
-  I2cIoExpander is free software: you can redistribute it and/or modify
+  I2cDiscreteIoExpander is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
   
-  I2cIoExpander is distributed in the hope that it will be useful,
+  I2cDiscreteIoExpander is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
   
   You should have received a copy of the GNU General Public License
-  along with I2cIoExpander.  If not, see <http://www.gnu.org/licenses/>.
+  along with I2cDiscreteIoExpander.  If not, see <http://www.gnu.org/licenses/>.
   
   Written by Doc Walker (Rx)
   Copyright © 2009-2012 Doc Walker <4-20ma at wvfans dot net>
@@ -24,23 +24,23 @@
 
 
 // __________________________________________________________ PROJECT INCLUDES
-#include "I2cIoExpander.h"
+#include "I2cDiscreteIoExpander.h"
 
 
 // ___________________________________________________ PUBLIC MEMBER FUNCTIONS
 /// Constructor.
 /// Assigns device address, resets storage object, enables bitwise inversion.
-/// \required Call this to construct I2cIoExpander object.
+/// \required Call this to construct I2cDiscreteIoExpander object.
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander exampleA(1);             // device with address 1
-/// I2cIoExpander exampleB[2] = { 2, 3 };  // devices with addresses 2, 3
-/// I2cIoExpander exampleC[2] = { I2cIoExpander(4), I2cIoExpander(5) }; // alternate constructor syntax; devices with addresses 4, 5
-/// I2cIoExpander exampleD[8] = { 0, 1, 2, 3, 4, 5, 6, 7 }; // addresses 0..7
+/// I2cDiscreteIoExpander exampleA(1);             // device with address 1
+/// I2cDiscreteIoExpander exampleB[2] = { 2, 3 };  // devices with addresses 2, 3
+/// I2cDiscreteIoExpander exampleC[2] = { I2cDiscreteIoExpander(4), I2cDiscreteIoExpander(5) }; // alternate constructor syntax; devices with addresses 4, 5
+/// I2cDiscreteIoExpander exampleD[8] = { 0, 1, 2, 3, 4, 5, 6, 7 }; // addresses 0..7
 /// ...
 /// \endcode
-I2cIoExpander::I2cIoExpander(uint8_t address)
+I2cDiscreteIoExpander::I2cDiscreteIoExpander(uint8_t address)
 {
   address_ = address & 0b111;
   ports_ = 0;
@@ -48,16 +48,16 @@ I2cIoExpander::I2cIoExpander(uint8_t address)
 }
 
 
-/// \overload I2cIoExpander::I2cIoExpander(uint8_t address)
+/// \overload I2cDiscreteIoExpander::I2cDiscreteIoExpander(uint8_t address)
 /// Constructor.
 /// Assigns device address, resets storage object, enables bitwise inversion.
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;        // implies device address 0
+/// I2cDiscreteIoExpander device;        // implies device address 0
 /// ...
 /// \endcode
-I2cIoExpander::I2cIoExpander()
+I2cDiscreteIoExpander::I2cDiscreteIoExpander()
 {
   address_ = 0;
   ports_ = 0;
@@ -75,7 +75,7 @@ I2cIoExpander::I2cIoExpander()
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;
+/// I2cDiscreteIoExpander device;
 /// ...
 /// uint8_t status = device.digitalRead();
 /// if (TWI_SUCCESS == status)
@@ -84,7 +84,7 @@ I2cIoExpander::I2cIoExpander()
 /// }
 /// ...
 /// \endcode
-uint8_t I2cIoExpander::digitalRead()
+uint8_t I2cDiscreteIoExpander::digitalRead()
 {
   uint8_t hi, lo, status;
   
@@ -120,7 +120,7 @@ uint8_t I2cIoExpander::digitalRead()
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;
+/// I2cDiscreteIoExpander device;
 /// ...
 /// uint8_t status = device.digitalWrite(0xFFFF);
 /// if (TWI_SUCCESS == status)
@@ -129,7 +129,7 @@ uint8_t I2cIoExpander::digitalRead()
 /// }
 /// ...
 /// \endcode
-uint8_t I2cIoExpander::digitalWrite(uint16_t ports)
+uint8_t I2cDiscreteIoExpander::digitalWrite(uint16_t ports)
 {
   ports_ = shouldInvert_ ? ~ports : ports;
   Wire.beginTransmission(BASE_ADDRESS_ | address_);
@@ -148,12 +148,12 @@ uint8_t I2cIoExpander::digitalWrite(uint16_t ports)
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;
+/// I2cDiscreteIoExpander device;
 /// ...
 /// address = device.getAddress();
 /// ...
 /// \endcode
-uint8_t I2cIoExpander::getAddress()
+uint8_t I2cDiscreteIoExpander::getAddress()
 {
   return address_;
 }
@@ -165,12 +165,12 @@ uint8_t I2cIoExpander::getAddress()
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;
+/// I2cDiscreteIoExpander device;
 /// ...
 /// ports = device.getPorts();
 /// ...
 /// \endcode
-uint16_t I2cIoExpander::getPorts()
+uint16_t I2cDiscreteIoExpander::getPorts()
 {
   return ports_;
 }
@@ -181,14 +181,14 @@ uint16_t I2cIoExpander::getPorts()
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;
+/// I2cDiscreteIoExpander device;
 /// ...
 /// device.enableBitwiseInversion();      // bits will now inverted
 /// ...
 /// \endcode
-/// \sa I2cIoExpander::disableBitwiseInversion()
-/// \sa I2cIoExpander::isInverted()
-void I2cIoExpander::enableBitwiseInversion()
+/// \sa I2cDiscreteIoExpander::disableBitwiseInversion()
+/// \sa I2cDiscreteIoExpander::isInverted()
+void I2cDiscreteIoExpander::enableBitwiseInversion()
 {
   ports_ = shouldInvert_ ? ports_ : ~ports_;
   shouldInvert_ = true;
@@ -200,14 +200,14 @@ void I2cIoExpander::enableBitwiseInversion()
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;
+/// I2cDiscreteIoExpander device;
 /// ...
 /// device.disableBitwiseInversion();     // bits will no longer be inverted
 /// ...
 /// \endcode
-/// \sa I2cIoExpander::enableBitwiseInversion()
-/// \sa I2cIoExpander::isInverted()
-void I2cIoExpander::disableBitwiseInversion()
+/// \sa I2cDiscreteIoExpander::enableBitwiseInversion()
+/// \sa I2cDiscreteIoExpander::isInverted()
+void I2cDiscreteIoExpander::disableBitwiseInversion()
 {
   ports_ = shouldInvert_ ? ~ports_ : ports_;
   shouldInvert_ = false;
@@ -219,7 +219,7 @@ void I2cIoExpander::disableBitwiseInversion()
 /// \par Usage:
 /// \code
 /// ...
-/// I2cIoExpander device;
+/// I2cDiscreteIoExpander device;
 /// ...
 /// if (device.isInverted())
 /// {
@@ -227,9 +227,9 @@ void I2cIoExpander::disableBitwiseInversion()
 /// }
 /// ...
 /// \endcode
-/// \sa I2cIoExpander::enableBitwiseInversion()
-/// \sa I2cIoExpander::disableBitwiseInversion()
-bool I2cIoExpander::isInverted()
+/// \sa I2cDiscreteIoExpander::enableBitwiseInversion()
+/// \sa I2cDiscreteIoExpander::disableBitwiseInversion()
+bool I2cDiscreteIoExpander::isInverted()
 {
   return shouldInvert_;
 }
