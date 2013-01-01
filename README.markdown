@@ -1,5 +1,5 @@
 ## Overview
-This is an Arduino library for the Arduino library for Texas Instruments PCF8575C 16-bit I2C I/O expander.
+This is an Arduino library for the Texas Instruments PCF8575C 16-bit I2C I/O expander.
 
 ## Features
 The PCF8575C provides general-purpose remote I/O expansion for most microcontroller families via the I2C interface serial clock (SCL) and serial data (SDA).
