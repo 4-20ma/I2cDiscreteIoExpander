@@ -1,12 +1,12 @@
 #######################################
-# Syntax Coloring Map For i2c_dio_pcf8575c
+# Syntax Coloring Map For I2cIoExpander
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-i2c_dio_pcf8575c	KEYWORD1
+I2cIoExpander	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

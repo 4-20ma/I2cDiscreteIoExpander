@@ -2,22 +2,22 @@
 /// Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 /*
   
-  i2c_dio_pcf8575c.h Arduino library for TI PCF8575C 16-bit I2C I/O expander
+  I2cIoExpander.h Arduino library for TI PCF8575C 16-bit I2C I/O expander
   
-  This file is part of i2c_dio_pcf8575c.
+  This file is part of I2cIoExpander.
   
-  i2c_dio_pcf8575c is free software: you can redistribute it and/or modify
+  I2cIoExpander is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
   
-  i2c_dio_pcf8575c is distributed in the hope that it will be useful,
+  I2cIoExpander is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
   
   You should have received a copy of the GNU General Public License
-  along with i2c_dio_pcf8575c.  If not, see <http://www.gnu.org/licenses/>.
+  along with I2cIoExpander.  If not, see <http://www.gnu.org/licenses/>.
   
   Written by Doc Walker (Rx)
   Copyright © 2009-2012 Doc Walker <4-20ma at wvfans dot net>
@@ -49,15 +49,15 @@
 /// \date 29 Dec 2012
 /// \copyright GNU General Public License v3
 /// \par Source Code Repository:
-///   https://github.com/4-20ma/i2c_dio_pcf8575c
+///   https://github.com/4-20ma/I2cIoExpander
 /// \par Programming Style Guidelines:
 ///   http://geosoft.no/development/cppstyle.html
 /// \par Schematic:
 ///   \verbinclude SCHEMATIC
 
 
-#ifndef i2c_dio_pcf8575c_h
-#define i2c_dio_pcf8575c_h
+#ifndef I2C_IO_EXPANDER_h
+#define I2C_IO_EXPANDER_h
 
 
 // _________________________________________________________ STANDARD INCLUDES
@@ -81,14 +81,15 @@
 
 
 // _________________________________________________________ CLASS DEFINITIONS
-class i2c_dio_pcf8575c
+class I2cIoExpander
 {
   public:
     // ............................................... public member functions
-    i2c_dio_pcf8575c();
     
     void     begin(uint8_t);
     void     begin();
+    I2cIoExpander(uint8_t);
+    I2cIoExpander();
     uint8_t  digitalRead();
     uint8_t  digitalWrite();
     uint8_t  digitalWrite(uint16_t);
@@ -194,6 +195,6 @@ class i2c_dio_pcf8575c
     */
     bool _bInvert;
 };
-#endif
 /// \example examples/PCF8575C_example/PCF8575C_example.pde
 /// \example examples/Marching_ants_example/Marching_ants_example.pde
+#endif // I2C_IO_EXPANDER_h
