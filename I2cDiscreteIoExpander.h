@@ -2,9 +2,13 @@
 /// Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 /*
   
-  I2cDiscreteIoExpander.h Arduino library for TI PCF8575C 16-bit I2C I/O expander
+  I2cDiscreteIoExpander.h - Arduino library for TI PCF8575C 16-bit I2C
+  I/O expander.
   
-  This file is part of I2cDiscreteIoExpander.
+  Library:: I2cDiscreteIoExpander
+  Author:: Doc Walker <4-20ma@wvfans.net>
+
+  Copyright:: 2009-2016 Doc Walker
   
   I2cDiscreteIoExpander is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -18,9 +22,6 @@
   
   You should have received a copy of the GNU General Public License
   along with I2cDiscreteIoExpander.  If not, see <http://www.gnu.org/licenses/>.
-  
-  Written by Doc Walker (Rx)
-  Copyright © 2009-2013 Doc Walker <4-20ma at wvfans dot net>
   
 */
 
