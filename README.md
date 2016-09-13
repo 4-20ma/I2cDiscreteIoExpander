@@ -1,28 +1,46 @@
+# I2cDiscreteIoExpander
+[![GitHub release](https://img.shields.io/github/release/4-20ma/I2cDiscreteIoExpander.svg?maxAge=3600)][GitHub release]
+[![Travis](https://img.shields.io/travis/4-20ma/I2cDiscreteIoExpander.svg?maxAge=3600)][Travis]
+[![license](https://img.shields.io/github/license/4-20ma/I2cDiscreteIoExpander.svg?maxAge=3600)][license]
+[![code of conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?maxAge=3600)][code of conduct]
+
+[GitHub release]:   https://github.com/4-20ma/I2cDiscreteIoExpander
+[Travis]:           https://travis-ci.org/4-20ma/I2cDiscreteIoExpander
+[license]:          COPYING
+[code of conduct]:  CODE_OF_CONDUCT.md
+
+
 ## Overview
-This is an Arduino library for the Texas Instruments PCF8575C 16-bit I2C I/O expander.
+This is an Arduino library for the Texas Instruments PCF8575C 16-bit I<sup>2</sup>C I/O expander.
+
 
 ## Features
-The PCF8575C provides general-purpose remote I/O expansion for most microcontroller families via the I2C interface serial clock (SCL) and serial data (SDA).
+The PCF8575C provides general-purpose remote I/O expansion for most microcontroller families via the I<sup>2</sup>C interface serial clock (SCL) and serial data (SDA).
 
 The device features a 16-bit quasi-bidirectional input/output (I/O) port (P07..P00, P17..P10), including latched outputs with high-current drive capability for directly driving LEDs. Each quasi-bidirectional I/O can be used as an input or output without the use of a data-direction control signal. At power on, the I/Os are in 3-state mode. The strong pullup to VCC allows fast-rising edges into heavily loaded outputs. This device turns on when an output is written high and is switched off by the negative edge of SCL. The I/Os should be high before being used as inputs. After power on, as all the I/Os are set to 3-state, all of them can be used as inputs. Any change in setting of the I/Os as either inputs or outputs can be done with the write mode. If a high is applied externally to an I/O that has been written earlier to low, a large current (IOL) flows to GND.
 
-The fixed I2C address of the PCF8575C is the same as the PCF8575, PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices, in any combination, to share the same I2C bus or SMBus.
+The fixed I<sup>2</sup>C address of the PCF8575C (0x20) is the same as the PCF8575, PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices, in any combination, to share the same I<sup>2</sup>C bus or SMBus.
 
-## Hardware
-This library has been tested with an Arduino [Duemilanove](http://www.arduino.cc/en/Main/ArduinoBoardDuemilanove) and a Texas Instruments [PCF8575C](http://www.ti.com/product/pcf8575c) remote I/O expander.
 
 ## Installation
-Determine the location of your sketchbook by selecting _File > Preferences_ from within the Arduino IDE. If you don't already have a _libraries_ folder within your sketchbook, create one and unzip the archive there. See [this](http://arduino.cc/blog/?p=313) for more information.
 
-Note: Arduino 1.0 or later is required.
+#### Library Manager
+Install the library into your Arduino IDE using the Library Manager (available from IDE version 1.6.2). Open the IDE and click Sketch > Include Library > Manage Libraries&hellip;
 
-## Support
-Full [source code documentation](http://4-20ma.github.com/I2cDiscreteIoExpander/) is available. Please report any bugs on the [Issue Tracker](/4-20ma/I2cDiscreteIoExpander/issues).
+Scroll or search for `I2cDiscreteIoExpander`, then select the version of the library you want to install. Quit/re-launch the IDE to refresh the list; new versions are automatically added to the list, once released on GitHub.
 
-## Questions/Feedback
-I can be contacted at 4-20ma at wvfans dot net.
+Refer to Arduino Tutorials > Libraries [Using the Library Manager](https://www.arduino.cc/en/Guide/Libraries#toc3).
+
+#### Zip Library
+Refer to Arduino Tutorials > Libraries [Importing a .zip Library](https://www.arduino.cc/en/Guide/Libraries#toc4).
+
+#### Manual
+Refer to Arduino Tutorials > Libraries [Manual Installation](https://www.arduino.cc/en/Guide/Libraries#toc5).
+
 
 ## Schematic
+This library has been tested with an Arduino [Duemilanove](http://www.arduino.cc/en/Main/ArduinoBoardDuemilanove) and a Texas Instruments [PCF8575C](http://www.ti.com/product/pcf8575c) remote I/O expander.
+
 Below is a simplified schematic diagram. Refer to the datasheet for specific requirements.
 
 ```
@@ -64,10 +82,11 @@ o------o|12 GND   P10 13|o-     |
                                GND
 ```
 
-## Example
-The library contains sketches that demonstrates use of the I2cDiscreteIoExpander library. You can find these in the [examples](/4-20ma/I2cDiscreteIoExpander/tree/master/examples/) folder.
 
-```c++
+## Example
+The library contains sketches that demonstrates use of the `I2cDiscreteIoExpander` library. You can find these in the [examples](/4-20ma/I2cDiscreteIoExpander/tree/master/examples/) folder.
+
+``` cpp
 #include <Wire.h>
 #include <I2cDiscreteIoExpander.h>
 
@@ -135,3 +154,11 @@ void loop()
   delay(1000);
 }
 ```
+
+
+## Caveats
+Arduino 1.0 or later is required.
+
+
+## Support
+Please [submit an issue](https://github.com/4-20ma/I2cDiscreteIoExpander/issues) for all questions, bug reports, and feature requests. Email requests will be politely redirected to the issue tracker so others may contribute to the discussion and requestors get a more timely response.
