@@ -173,7 +173,7 @@ desc 'Release source & documentation'
 task :release => 'release:default'
 
 namespace :release do
-  task :default => %(source documentation)
+  task :default => %w(source documentation)
 
   desc 'Commit documentation changes related to version bump'
   task :documentation do
