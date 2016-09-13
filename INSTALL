@@ -1,8 +1,0 @@
-INSTALL
-
-Determine the location of your sketchbook by selecting File > 
-Preferences from within the Arduino IDE. If you don't already have a 
-libraries folder within your sketchbook, create one and unzip the 
-archive there. See http://arduino.cc/blog/?p=313 for more information. 
-
-Note: Arduino 1.0 or later is required.
