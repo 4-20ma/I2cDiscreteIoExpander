@@ -16,10 +16,17 @@
 #
 
 require 'git'
+require 'github_changelog_generator/task'
 require 'rake'
 require 'rubygems'
 require 'rake/version_task'         # gem install version
 require 'version'
+
+# requires additional packages on MacOS (including Homebrew):
+# $ /usr/bin/ruby -e "$(curl -fsSL \
+#   https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# $ brew install doxygen        # generates documentation from source code
+# $ brew cask install mactex    # MacTeX
 
 Rake::VersionTask.new do |task|
   # prevent auto-commit on version bump
@@ -30,7 +37,7 @@ end
 GITHUB_USERNAME = '4-20ma'
 GITHUB_REPO     = 'I2cDiscreteIoExpander'
 HEADER_FILE     = "#{GITHUB_REPO}.h"
-HISTORY_FILE    = 'HISTORY.markdown'
+CHANGELOG_FILE  = 'CHANGELOG.md'
 VERSION_FILE    = Version.version_file('').basename.to_s
 
 
@@ -49,11 +56,11 @@ task :info do
     $ rake version:bump:major     # or
     edit 'VERSION' file directly
     
-  - Prepare release date, 'HISTORY.markdown' file, documentation:
+  - Prepare release date, 'CHANGELOG.md' file, documentation:
   
     $ rake prepare
     
-  - Review changes to 'HISTORY.markdown' file
+  - Review changes to 'CHANGELOG.md' file
     This file is assembled using git commit messages; review for completeness.
   
   - Review html documentation files
@@ -69,11 +76,11 @@ task :info do
 end # task :info
 
 
-desc 'Prepare HISTORY file for release'
+desc "Prepare #{CHANGELOG_FILE} for release"
 task :prepare => 'prepare:default'
 
 namespace :prepare do
-  task :default => [:release_date, :history, :documentation]
+  task :default => %w(release_date changelog documentation)
 
   desc 'Prepare documentation'
   task :documentation => :first_time do
@@ -125,28 +132,27 @@ namespace :prepare do
   end
 
   desc 'Prepare release history'
-  task :history, :tag do |t, args|
-    cwd = File.expand_path(File.dirname(__FILE__))
-    g = Git.open(cwd)
-
-    current_tag = args[:tag] || Version.current.to_s
-    prior_tag = g.tags.last
-
-    history = "## [v#{current_tag} (#{Time.now.strftime('%Y-%m-%d')})]"
-    history << "(/#{GITHUB_USERNAME}/#{GITHUB_REPO}/tree/v#{current_tag})\n"
-
-    commits = prior_tag ? g.log.between(prior_tag) : g.log
-    history << commits.map do |commit|
-      "- #{commit.message}"
-    end.join("\n")
-    history << "\n\n---\n"
-
-    file = File.join(cwd, HISTORY_FILE)
-    puts "Updating file #{file}:"
-    puts history
-    contents = IO.read(file)
-    IO.write(file, history << contents)
-  end # task :history
+  GitHubChangelogGenerator::RakeTask.new(:changelog) do |config|
+    config.add_issues_wo_labels = false
+    config.add_pr_wo_labels = false
+    config.enhancement_labels = [
+      'Type: Enhancement',
+      'Type: Feature Request'
+    ]
+    config.bug_labels = ['Type: Bug']
+    config.exclude_labels = ['Type: Question']
+    config.header = '# I2cDiscreteIoExpander CHANGELOG'
+    config.include_labels = [
+      'Type: Bug',
+      'Type: Enhancement',
+      'Type: Feature Request',
+      'Type: Maintenance'
+    ]
+    # config.since_tag = '0.1.0'
+    config.future_release = "v#{Version.current.to_s}"
+    config.user = GITHUB_USERNAME
+    config.project = GITHUB_REPO
+  end # GitHubChangelogGenerator::RakeTask.new
 
   desc 'Update release date in header file'
   task :release_date do
@@ -167,7 +173,7 @@ desc 'Release source & documentation'
 task :release => 'release:default'
 
 namespace :release do
-  task :default => [:source, :documentation]
+  task :default => %(source documentation)
 
   desc 'Commit documentation changes related to version bump'
   task :documentation do
@@ -198,7 +204,7 @@ namespace :release do
   desc 'Commit source changes related to version bump'
   task :source do
     version = Version.current.to_s
-    `git add #{HEADER_FILE} #{HISTORY_FILE} #{VERSION_FILE}`
+    `git add #{HEADER_FILE} #{CHANGELOG_FILE} #{VERSION_FILE}`
     `git commit -m 'Version bump to v#{version}'`
     `git tag -a -f -m 'Version v#{version}' v#{version}`
     `git push origin master`
