@@ -1,28 +1,27 @@
 /// \file
 /// Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 /*
-  
+
   I2cDiscreteIoExpander.h - Arduino library for TI PCF8575C 16-bit I2C
   I/O expander.
-  
+
   Library:: I2cDiscreteIoExpander
   Author:: Doc Walker <4-20ma@wvfans.net>
 
   Copyright:: 2009-2016 Doc Walker
-  
-  I2cDiscreteIoExpander is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
-  
-  I2cDiscreteIoExpander is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-  
-  You should have received a copy of the GNU General Public License
-  along with I2cDiscreteIoExpander.  If not, see <http://www.gnu.org/licenses/>.
-  
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
 */
 
 
@@ -46,13 +45,13 @@
 /// externally to an I/O that has been written earlier to low, a large
 /// current (IOL) flows to GND.<br>
 /// 
-/// The fixed I2C address of the PCF8575C is the same as the PCF8575,
+/// The fixed I2C address of the PCF8575C (0x20) is the same as the PCF8575,
 /// PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices,
 /// in any combination, to share the same I2C bus or SMBus.
 /// \author Doc Walker
 /// \version \verbinclude VERSION
 /// \date 1 Jan 2013
-/// \copyright GNU General Public License v3
+/// \copyright Apache License, Version 2.0
 /// \par Arduino IDE:
 ///   Requires Arduino 1.0 or later
 /// \par Source Code Repository:
@@ -119,28 +118,28 @@ class I2cDiscreteIoExpander
     void     enableBitwiseInversion();
     void     disableBitwiseInversion();
     bool     isInverted();
-    
+
     // ........................................ static public member functions
-    
+
     // ..................................................... public attributes
-    
+
     // .............................................. static public attributes
-    
+
   private:
     // .............................................. private member functions
-    
+
     // ....................................... static private member functions
-    
+
     // .................................................... private attributes
     /// Device address as defined by pins A2, A1, A0.
     uint8_t address_;
-    
+
     /// Storage object for I2cDiscreteIoExpander ports 1 (P17..P10), 0 (P07..P00).
     uint16_t ports_;
-    
+
     /// Flag indicating whether bits are to be inverted before read/write (false=don't invert, true=invert).
     bool shouldInvert_;
-    
+
     // ............................................. static private attributes
     /// Factory pre-set slave address.
     static const uint8_t BASE_ADDRESS_ = 0x20;
