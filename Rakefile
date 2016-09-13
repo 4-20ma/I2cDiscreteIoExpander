@@ -34,6 +34,7 @@ Rake::VersionTask.new do |task|
 end
 
 # adjust as appropriate
+DOXYFILE        = 'Doxyfile'
 GITHUB_USERNAME = '4-20ma'
 GITHUB_REPO     = 'I2cDiscreteIoExpander'
 HEADER_FILE     = "#{GITHUB_REPO}.h"
@@ -88,7 +89,7 @@ namespace :prepare do
 
     # update parameters in Doxyfile
     cwd = File.expand_path(File.dirname(__FILE__))
-    file = File.join(cwd, 'doc', 'Doxyfile')
+    file = File.join(cwd, 'doc', DOXYFILE)
 
     contents = IO.read(file)
     contents.sub!(/(^PROJECT_NUMBER\s*=)(.*)$/) do |match|
@@ -98,7 +99,7 @@ namespace :prepare do
 
     # chdir to doc/ and call doxygen to update documentation
     Dir.chdir(to = File.join(cwd, 'doc'))
-    system('doxygen', 'Doxyfile')
+    system('doxygen', DOXYFILE)
 
     # chdir to doc/latex and call doxygen to update documentation
     Dir.chdir(from = File.join(cwd, 'doc', 'latex'))
@@ -203,7 +204,8 @@ namespace :release do
   desc 'Commit source changes related to version bump'
   task :source do
     version = Version.current.to_s
-    `git add #{HEADER_FILE} #{CHANGELOG_FILE} #{VERSION_FILE}`
+    `git add doc/#{DOXYFILE} "doc/#{GITHUB_REPO} reference-#{version}.pdf" \
+      #{HEADER_FILE} #{CHANGELOG_FILE} #{VERSION_FILE}`
     `git commit -m 'Version bump to v#{version}'`
     `git tag -a -f -m 'Version v#{version}' v#{version}`
     `git push origin master`
