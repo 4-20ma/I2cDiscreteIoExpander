@@ -1,5 +1,12 @@
 # I2cDiscreteIoExpander CHANGELOG
 
+## [v3.0.1](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v3.0.1) (2016-09-13)
+[Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v3.0.0...v3.0.1)
+
+**Fixed bugs:**
+
+- 19 Fix Rakefile [\#20](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/20) ([4-20ma](https://github.com/4-20ma))
+
 ## [v3.0.0](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v3.0.0) (2016-09-13)
 [Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v2.0.0...v3.0.0)
 
