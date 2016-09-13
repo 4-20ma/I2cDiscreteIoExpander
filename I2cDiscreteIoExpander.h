@@ -26,11 +26,18 @@
 
 
 /// \mainpage Arduino library for TI PCF8575C 16-bit I2C I/O expander.
+/// \version \verbinclude VERSION
+/// \date 13 Sep 2016
+/// \par Source Code Repository
+///   https://github.com/4-20ma/I2cDiscreteIoExpander
+/// \par Programming Style Guidelines
+///   http://geosoft.no/development/cppstyle.html
 /// 
+/// \par Features
 /// The PCF8575C provides general-purpose remote I/O expansion for most
 /// microcontroller families via the I2C interface serial clock (SCL) and
 /// serial data (SDA).<br>
-/// 
+/// <br>
 /// The device features a 16-bit quasi-bidirectional input/output (I/O) port
 /// (P07..P00, P17..P10), including latched outputs with high-current drive
 /// capability for directly driving LEDs. Each quasi-bidirectional I/O can
@@ -44,22 +51,35 @@
 /// inputs or outputs can be done with the write mode. If a high is applied
 /// externally to an I/O that has been written earlier to low, a large
 /// current (IOL) flows to GND.<br>
-/// 
+/// <br>
 /// The fixed I2C address of the PCF8575C (0x20) is the same as the PCF8575,
 /// PCF8574, PCA9535, and PCA9555, allowing up to eight of these devices,
 /// in any combination, to share the same I2C bus or SMBus.
-/// \author Doc Walker
-/// \version \verbinclude VERSION
-/// \date 1 Jan 2013
-/// \copyright Apache License, Version 2.0
-/// \par Arduino IDE:
-///   Requires Arduino 1.0 or later
-/// \par Source Code Repository:
-///   https://github.com/4-20ma/I2cDiscreteIoExpander
-/// \par Programming Style Guidelines:
-///   http://geosoft.no/development/cppstyle.html
-/// \par Schematic:
+/// \par Schematic
 ///   \verbinclude SCHEMATIC
+/// \par Caveats
+///   Arduino 1.0 or later is required.
+/// \par Support
+/// Please [submit an issue](https://github.com/4-20ma/I2cDiscreteIoExpander/
+/// issues) for all questions, bug reports, and feature requests. Email
+/// requests will be politely redirected to the issue tracker so others may
+/// contribute to the discussion and requestors get a more timely response.
+/// \author Doc Walker ([4-20ma@wvfans.net](mailto:4-20ma@wvfans.net))
+/// \copyright 2009-2016 Doc Walker
+/// \par License
+/// <pre>
+/// Licensed under the Apache License, Version 2.0 (the "License");
+/// you may not use this file except in compliance with the License.
+/// You may obtain a copy of the License at
+/// <span>
+///     http://www.apache.org/licenses/LICENSE-2.0
+/// <span>
+/// Unless required by applicable law or agreed to in writing, software
+/// distributed under the License is distributed on an "AS IS" BASIS,
+/// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+/// See the License for the specific language governing permissions and
+/// limitations under the License.
+/// </pre>
 
 
 #ifndef I2C_DISCRETE_IO_EXPANDER_H
