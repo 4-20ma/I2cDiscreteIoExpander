@@ -6,7 +6,7 @@
 
 [GitHub release]:   https://github.com/4-20ma/I2cDiscreteIoExpander
 [Travis]:           https://travis-ci.org/4-20ma/I2cDiscreteIoExpander
-[license]:          COPYING
+[license]:          LICENSE
 [code of conduct]:  CODE_OF_CONDUCT.md
 
 
