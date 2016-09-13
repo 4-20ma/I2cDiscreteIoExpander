@@ -1,4 +1,7 @@
 # encoding: utf-8
+#
+# Copyright:: 2009-2016 Doc Walker
+#
 
 require 'git'
 require 'rake'
