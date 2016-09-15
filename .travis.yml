@@ -1,19 +1,31 @@
-language: c
-before_install:
-  - export ARDUINO_VERSION=1.6.5
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16"
-  - sleep 3
-  - export DISPLAY=:1.0
-  - wget http://downloads.arduino.cc/arduino-${ARDUINO_VERSION}-linux64.tar.xz
-  - tar xf arduino-${ARDUINO_VERSION}-linux64.tar.xz
-  - sudo mv arduino-${ARDUINO_VERSION} /usr/local/share/arduino
-  - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
+language: python
+
+python:
+  - '2.7
+
+sudo: false
+
+cache:
+  directories:
+    - '~/.platformio'
+
+env:
+  - PLATFORMIO_CI_SRC=examples/BareMinimum/BareMinimum.ino
+  - PLATFORMIO_CI_SRC=examples/MultipleDevices/MultipleDevices.ino
+  - PLATFORMIO_CI_SRC=examples/
+
 install:
-  - ln -s ${PWD} /usr/local/share/arduino/libraries/I2cDiscreteIoExpander
-  - arduino --pref "compiler.warning_level=all" --save-prefs
+  - pip install -U platformio
+
 script:
-  - echo $PWD
+  - env
   - echo $HOME
+  - echo $TRAVIS_BUILD_DIR
   - ls -al $PWD
-  - source ${TRAVIS_BUILD_DIR}/travis/common.sh
-  - build_examples
+  - platformio ci \
+    --board=uno \
+    --board=uno \
+    --board=huzzah \
+    --board=genuino101 \
+    --board=teensy31 \
+    --lib='.'
