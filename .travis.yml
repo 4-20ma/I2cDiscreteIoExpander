@@ -9,6 +9,7 @@ cache:
   directories:
     - ~/.platformio
 
+# include one array element for each sketch in examples/
 env:
   - PLATFORMIO_CI_SRC=examples/BareMinimum/BareMinimum.ino
   - PLATFORMIO_CI_SRC=examples/MultipleDevices/MultipleDevices.ino
@@ -21,10 +22,11 @@ script:
   - echo $HOME
   - echo $TRAVIS_BUILD_DIR
   - ls -al $PWD
-  - platformio ci
-    --board=uno
-    --board=uno
-    --board=huzzah
-    --board=genuino101
-    --board=teensy31
-    --lib=. ${PLATFORMIO_CI_SRC}
+  - platformio ci                 # at least one board from each platform
+    --board=uno                   # atmelavr
+    --board=due                   # atmelsam
+    --board=huzzah                # espressif8266
+    --board=genuino101            # intel_arc32
+    --board=teensy31              # teensy
+    --lib=.
+    ${PLATFORMIO_CI_SRC}
