@@ -22,11 +22,19 @@ script:
   - echo $HOME
   - echo $TRAVIS_BUILD_DIR
   - ls -al $PWD
-  - platformio ci                 # at least one board from each platform
-    --board=uno                   # atmelavr
-    --board=due                   # atmelsam
-    --board=huzzah                # espressif8266
-    --board=genuino101            # intel_arc32
-    --board=teensy31              # teensy
+  # include at least one board from each platform:
+  #   Platform        Board
+  #   -------------   ----------
+  #   atmelavr        uno
+  #   atmelsam        due
+  #   espressif8266   huzzah
+  #   intel_arc32     genuino101
+  #   teensy          teensy31
+  - platformio ci
+    --board=uno
+    --board=due
+    --board=huzzah
+    --board=genuino101
+    --board=teensy31
     --lib=.
     ${PLATFORMIO_CI_SRC}
