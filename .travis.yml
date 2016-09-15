@@ -9,19 +9,12 @@ cache:
   directories:
     - ~/.platformio
 
-# include one array element for each sketch in examples/
 env:
-  - PLATFORMIO_CI_SRC=examples/BareMinimum/BareMinimum.ino
-  - PLATFORMIO_CI_SRC=examples/MultipleDevices/MultipleDevices.ino
-
-matrix:
-  include:
-    env:
-      - PLATFORMIO_BOARD=uno
-      - PLATFORMIO_BOARD=due
-      - PLATFORMIO_BOARD=huzzah
-      - PLATFORMIO_BOARD=genuino101
-      - PLATFORMIO_BOARD=teensy31
+  - PLATFORMIO_BOARD=uno
+  - PLATFORMIO_BOARD=due
+  - PLATFORMIO_BOARD=huzzah
+  - PLATFORMIO_BOARD=genuino101
+  - PLATFORMIO_BOARD=teensy31
 
 install:
   - pip install -U platformio
@@ -31,12 +24,5 @@ script:
   - echo $HOME
   - echo $TRAVIS_BUILD_DIR
   - ls -al $PWD
-  # include at least one board from each platform:
-  #   Platform        Board
-  #   -------------   ----------
-  #   atmelavr        uno
-  #   atmelsam        due
-  #   espressif8266   huzzah
-  #   intel_arc32     genuino101
-  #   teensy          teensy31
-  - platformio ci --board=${PLATFORMIO_BOARD} --lib=. ${PLATFORMIO_CI_SRC}
+  - source ${TRAVIS_BUILD_DIR}/travis/common.sh
+  - build_examples
