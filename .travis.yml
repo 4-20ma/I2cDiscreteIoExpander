@@ -15,12 +15,13 @@ env:
   - PLATFORMIO_CI_SRC=examples/MultipleDevices/MultipleDevices.ino
 
 matrix:
-  env:
-    - PLATFORMIO_BOARD=uno
-    - PLATFORMIO_BOARD=due
-    - PLATFORMIO_BOARD=huzzah
-    - PLATFORMIO_BOARD=genuino101
-    - PLATFORMIO_BOARD=teensy31
+  include:
+    env:
+      - PLATFORMIO_BOARD=uno
+      - PLATFORMIO_BOARD=due
+      - PLATFORMIO_BOARD=huzzah
+      - PLATFORMIO_BOARD=genuino101
+      - PLATFORMIO_BOARD=teensy31
 
 install:
   - pip install -U platformio
