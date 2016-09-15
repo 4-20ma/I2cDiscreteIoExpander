@@ -13,6 +13,11 @@ cache:
 env:
   - PLATFORMIO_CI_SRC=examples/BareMinimum/BareMinimum.ino
   - PLATFORMIO_CI_SRC=examples/MultipleDevices/MultipleDevices.ino
+  - PLATFORMIO_BOARD=uno
+  - PLATFORMIO_BOARD=due
+  - PLATFORMIO_BOARD=huzzah
+  - PLATFORMIO_BOARD=genuino101
+  - PLATFORMIO_BOARD=teensy31
 
 install:
   - pip install -U platformio
@@ -30,11 +35,4 @@ script:
   #   espressif8266   huzzah
   #   intel_arc32     genuino101
   #   teensy          teensy31
-  - platformio ci
-    --board=uno
-    --board=due
-    --board=huzzah
-    --board=genuino101
-    --board=teensy31
-    --lib=.
-    ${PLATFORMIO_CI_SRC}
+  - platformio ci --board=${PLATFORMIO_BOARD} --lib=. ${PLATFORMIO_CI_SRC}
