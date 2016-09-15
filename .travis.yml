@@ -1,18 +1,17 @@
 language: python
 
 python:
-  - '2.7'
+  - 2.7
 
 sudo: false
 
 cache:
   directories:
-    - '~/.platformio'
+    - ~/.platformio
 
 env:
   - PLATFORMIO_CI_SRC=examples/BareMinimum/BareMinimum.ino
   - PLATFORMIO_CI_SRC=examples/MultipleDevices/MultipleDevices.ino
-  - PLATFORMIO_CI_SRC=examples/
 
 install:
   - pip install -U platformio
@@ -22,4 +21,10 @@ script:
   - echo $HOME
   - echo $TRAVIS_BUILD_DIR
   - ls -al $PWD
-  - platformio ci --board=uno --board=uno --board=huzzah --board=genuino101 --board=teensy31 --lib=. ${PLATFORMIO_CI_SRC}
+  - platformio ci
+    --board=uno
+    --board=uno
+    --board=huzzah
+    --board=genuino101
+    --board=teensy31
+    --lib=. ${PLATFORMIO_CI_SRC}
