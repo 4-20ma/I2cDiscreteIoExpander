@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------- settings
-FIND          := find -E
+FIND          := find
 DIR           := $(PWD)/examples
-CRITERIA      := -regex ".*(pde|ino)"
+CRITERIA      := \( -name "*.ino" -o -name "*.pde" \)
 EACH_EXAMPLE  := $(FIND) $(DIR) $(CRITERIA) -exec
 BUILD         := platformio ci
 LIB           := .
