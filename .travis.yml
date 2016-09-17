@@ -25,4 +25,4 @@ script:
   - echo $TRAVIS_BUILD_DIR
   - ls -al $PWD
   - source ${TRAVIS_BUILD_DIR}/travis/common.sh
-  - build_examples
+  - make build
