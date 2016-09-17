@@ -9,6 +9,7 @@ cache:
   directories:
     - ~/.platformio
 
+# update Makefile if target boards added
 env:
   - PLATFORMIO_BOARD=uno
   - PLATFORMIO_BOARD=due
