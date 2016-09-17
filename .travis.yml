@@ -20,10 +20,11 @@ env:
 install:
   - pip install -U platformio
 
-script:
+before_script:
   - env
   - echo $HOME
   - echo $TRAVIS_BUILD_DIR
   - ls -al $PWD
-  - source ${TRAVIS_BUILD_DIR}/travis/common.sh
+
+script:
   - make build
