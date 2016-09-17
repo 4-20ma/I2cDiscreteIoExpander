@@ -1,10 +1,10 @@
 #-------------------------------------------------------------------- settings
-FIND := find -E
-DIR := $(PWD)/examples
-CRITERIA := -regex ".*(pde|ino)"
-EACH_EXAMPLE := $(FIND) $(DIR) $(CRITERIA) -exec
-BUILD := platformio ci
-LIB := .
+FIND          := find -E
+DIR           := $(PWD)/examples
+CRITERIA      := -regex ".*(pde|ino)"
+EACH_EXAMPLE  := $(FIND) $(DIR) $(CRITERIA) -exec
+BUILD         := platformio ci
+LIB           := .
 
 #--------------------------------------------------------------------- targets
 # update .travis.yml if target boards added
