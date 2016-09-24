@@ -157,7 +157,7 @@ void loop()
 
 
 ## Caveats
-Arduino 1.0 or later is required.
+Conforms to Arduino IDE 1.5 Library Specification v2.1 which requires Arduino IDE >= 1.5.
 
 
 ## Support
