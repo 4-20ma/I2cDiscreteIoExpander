@@ -39,6 +39,7 @@ GITHUB_USERNAME = '4-20ma'
 GITHUB_REPO     = 'I2cDiscreteIoExpander'
 HEADER_FILE     = "#{GITHUB_REPO}.h"
 CHANGELOG_FILE  = 'CHANGELOG.md'
+PROPERTIES_FILE = 'library.properties'
 VERSION_FILE    = Version.version_file('').basename.to_s
 
 
@@ -81,14 +82,14 @@ desc "Prepare #{CHANGELOG_FILE} for release"
 task :prepare => 'prepare:default'
 
 namespace :prepare do
-  task :default => %w(release_date changelog documentation)
+  task :default => %w(release_date library_properties changelog documentation)
 
   desc 'Prepare documentation'
   task :documentation => :first_time do
     version = Version.current.to_s
 
     # update parameters in Doxyfile
-    cwd = File.expand_path(File.dirname(__FILE__))
+    cwd = File.expand_path(__dir__)
     file = File.join(cwd, 'doc', DOXYFILE)
 
     contents = IO.read(file)
@@ -105,14 +106,15 @@ namespace :prepare do
     Dir.chdir(from = File.join(cwd, 'doc', 'latex'))
     system('make')
 
-    # move/rename file to 'doc/GITHUB_REPO reference-x.y.pdf'
+    # move/rename file to 'extras/GITHUB_REPO reference-x.y.pdf'
+    to = File.join(cwd, 'extras')
     FileUtils.mv(File.join(from, 'refman.pdf'),
       File.join(to, "#{GITHUB_REPO} reference-#{version}.pdf"))
   end # task :documentation
 
   # desc 'Prepare doc/html directory (first-time only)'
   task :first_time do
-    cwd = File.expand_path(File.join(File.dirname(__FILE__), 'doc', 'html'))
+    cwd = File.expand_path(File.join(__dir__, 'doc', 'html'))
     FileUtils.mkdir_p(cwd)
     Dir.chdir(cwd)
 
@@ -153,10 +155,24 @@ namespace :prepare do
     config.project = GITHUB_REPO
   end # GitHubChangelogGenerator::RakeTask.new
 
+  desc 'Update version in library properties file'
+  task :library_properties do
+    version = Version.current.to_s
+
+    cwd = File.expand_path(__dir__)
+    file = File.join(cwd, PROPERTIES_FILE)
+
+    contents = IO.read(file)
+    contents.sub!(/(version=\s*)(.*)$/) do |match|
+      "#{$1}#{version}"
+    end # contents.sub!(...)
+    IO.write(file, contents)
+  end # task :library_properties
+
   desc 'Update release date in header file'
   task :release_date do
-    cwd = File.expand_path(File.dirname(__FILE__))
-    file = File.join(cwd, HEADER_FILE)
+    cwd = File.expand_path(__dir__)
+    file = File.join(cwd, 'src', HEADER_FILE)
 
     contents = IO.read(file)
     contents.sub!(/(\\date\s*)(.*)$/) do |match|
@@ -177,7 +193,7 @@ namespace :release do
   desc 'Commit documentation changes related to version bump'
   task :documentation do
     version = Version.current.to_s
-    cwd = File.expand_path(File.join(File.dirname(__FILE__), 'doc', 'html'))
+    cwd = File.expand_path(File.join(__dir__, 'doc', 'html'))
     g = Git.open(cwd)
 
     # `git add .`
@@ -203,8 +219,14 @@ namespace :release do
   desc 'Commit source changes related to version bump'
   task :source do
     version = Version.current.to_s
-    `git add doc/#{DOXYFILE} "doc/#{GITHUB_REPO} reference-#{version}.pdf" \
-      #{HEADER_FILE} #{CHANGELOG_FILE} #{VERSION_FILE}`
+    `git add \
+      doc/#{DOXYFILE} \
+      "extras/#{GITHUB_REPO} reference-#{version}.pdf" \
+      src/#{HEADER_FILE} \
+      #{CHANGELOG_FILE} \
+      #{PROPERTIES_FILE} \
+      #{VERSION_FILE} \
+    `
     `git commit -m 'Version bump to v#{version}'`
     `git tag -a -f -m 'Version v#{version}' v#{version}`
     `git push origin master`

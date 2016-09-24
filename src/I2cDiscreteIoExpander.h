@@ -88,11 +88,7 @@
 
 // _________________________________________________________ STANDARD INCLUDES
 // include types & constants of Wiring core API
-#if defined(ARDUINO) && ARDUINO >= 100
 #include <Arduino.h>
-#else
-#error Arduino 1.0 or later is required.
-#endif
 
 
 // __________________________________________________________ PROJECT INCLUDES
