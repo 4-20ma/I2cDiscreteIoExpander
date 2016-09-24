@@ -27,7 +27,7 @@
 
 /// \mainpage Arduino library for TI PCF8575C 16-bit I2C I/O expander.
 /// \version \verbinclude VERSION
-/// \date 13 Sep 2016
+/// \date 24 Sep 2016
 /// \par Source Code Repository
 ///   https://github.com/4-20ma/I2cDiscreteIoExpander
 /// \par Programming Style Guidelines
