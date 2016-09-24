@@ -136,8 +136,7 @@ namespace :prepare do
     config.add_issues_wo_labels = false
     config.add_pr_wo_labels = false
     config.enhancement_labels = [
-      'Type: Enhancement',
-      'Type: Feature Request'
+      'Type: Enhancement'
     ]
     config.bug_labels = ['Type: Bug']
     config.exclude_labels = ['Type: Question']
