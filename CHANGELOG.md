@@ -3,70 +3,39 @@
 ## [v4.0.0](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v4.0.0) (2016-09-24)
 [Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v3.0.1...v4.0.0)
 
-**Implemented enhancements:**
+IMPROVEMENTS
 
-- Use platformio for travis ci [\#23](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/23)
-- BREAK: Update to IDE 1.5 library format v2.1 [\#30](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/30) ([4-20ma](https://github.com/4-20ma))
-- Use platformio [\#24](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/24) ([4-20ma](https://github.com/4-20ma))
+- \[BREAK\] Update to IDE 1.5 library format v2.1 [\#30](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/30) ([4-20ma](https://github.com/4-20ma))
+- Use PlatformIO for Travis CI [\#24](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/24) ([4-20ma](https://github.com/4-20ma))
 
-**Fixed bugs:**
-
-- Fix Makefile to return mix of .ino, .pde files [\#25](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/25)
-
-**Closed issues:**
-
-- Update CHANGELOG config [\#27](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/27)
-- Adjust .gitignore to add docs/\*.pdf to repo [\#21](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/21)
-
-**Merged pull requests:**
+OTHER
 
 - Update CHANGELOG config [\#29](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/29) ([4-20ma](https://github.com/4-20ma))
-- Fix makefile regex [\#26](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/26) ([4-20ma](https://github.com/4-20ma))
-- Adjust .gitignore [\#22](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/22) ([4-20ma](https://github.com/4-20ma))
+- Exclude /doc/ from repo, remove deprecated pdf docs [\#22](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/22) ([4-20ma](https://github.com/4-20ma))
 
 ## [v3.0.1](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v3.0.1) (2016-09-13)
 [Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v3.0.0...v3.0.1)
 
-**Fixed bugs:**
+BUG FIXES
 
-- Fix Rakefile [\#19](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/19)
-
-**Merged pull requests:**
-
-- Fix Rakefile [\#20](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/20) ([4-20ma](https://github.com/4-20ma))
+- Fix Rakefile git remote/origin, add DOXYFILE [\#20](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/20) ([4-20ma](https://github.com/4-20ma))
 
 ## [v3.0.0](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v3.0.0) (2016-09-13)
 [Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v2.0.0...v3.0.0)
 
-**Implemented enhancements:**
+IMPROVEMENTS
 
 - Automate changelog [\#16](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/16) ([4-20ma](https://github.com/4-20ma))
-- Change license to Apache 2.0 [\#14](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/14) ([4-20ma](https://github.com/4-20ma))
+- \[BREAK\] Change license to Apache 2.0 [\#14](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/14) ([4-20ma](https://github.com/4-20ma))
 - Add continuous integration testing [\#6](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/6) ([4-20ma](https://github.com/4-20ma))
+- Add Code of Conduct [\#4](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/4) ([4-20ma](https://github.com/4-20ma))
 
-**Fixed bugs:**
+OTHER
 
-- Fix release:default task [\#17](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/17)
-
-**Closed issues:**
-
-- Automate CHANGELOG [\#15](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/15)
-- Change project license to Apache 2.0 [\#13](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/13)
-- Update copyright year, format [\#11](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/11)
-- Remove deprecated INSTALL [\#9](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/9)
-- Synchronize .gitignore [\#7](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/7)
-- Add CI testing [\#5](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/5)
-- Add Code of Conduct [\#2](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/2)
-- Update README [\#1](https://github.com/4-20ma/I2cDiscreteIoExpander/issues/1)
-
-**Merged pull requests:**
-
-- Fix release:default task [\#18](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/18) ([4-20ma](https://github.com/4-20ma))
 - Update copyright, format [\#12](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/12) ([4-20ma](https://github.com/4-20ma))
 - Remove deprecated INSTALL [\#10](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/10) ([4-20ma](https://github.com/4-20ma))
 - Synchronize .gitignore [\#8](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/8) ([4-20ma](https://github.com/4-20ma))
-- Add Code of Conduct [\#4](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/4) ([4-20ma](https://github.com/4-20ma))
-- Update README [\#3](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/3) ([4-20ma](https://github.com/4-20ma))
+- Update README extension, add badges, i2c superscripts [\#3](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/3) ([4-20ma](https://github.com/4-20ma))
 
 ## [v2.0.0](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v2.0.0) (2013-01-01)
 [Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v1.0.1...v2.0.0)

@@ -38,7 +38,8 @@ DOXYFILE        = 'Doxyfile'
 GITHUB_USERNAME = '4-20ma'
 GITHUB_REPO     = 'I2cDiscreteIoExpander'
 HEADER_FILE     = "#{GITHUB_REPO}.h"
-CHANGELOG_FILE  = 'CHANGELOG.md'
+CHANGELOG       = 'CHANGELOG'
+CHANGELOG_FILE  = "#{CHANGELOG}.md"
 PROPERTIES_FILE = 'library.properties'
 VERSION_FILE    = Version.version_file('').basename.to_s
 
@@ -58,11 +59,11 @@ task :info do
     $ rake version:bump:major     # or
     edit 'VERSION' file directly
     
-  - Prepare release date, 'CHANGELOG.md' file, documentation:
+  - Prepare release date, '#{CHANGELOG_FILE}' file, documentation:
   
     $ rake prepare
     
-  - Review changes to 'CHANGELOG.md' file
+  - Review changes to '#{CHANGELOG_FILE}' file
     This file is assembled using git commit messages; review for completeness.
   
   - Review html documentation files
@@ -138,21 +139,18 @@ namespace :prepare do
     config.add_issues_wo_labels = false
     config.add_pr_wo_labels = false
     config.enhancement_labels = [
-      'Type: Enhancement'
-    ]
-    config.bug_labels = ['Type: Bug']
-    config.exclude_labels = ['Type: Question']
-    config.header = '# I2cDiscreteIoExpander CHANGELOG'
-    config.include_labels = [
-      'Type: Bug',
       'Type: Enhancement',
-      'Type: Feature Request',
-      'Type: Maintenance'
+      'Type: Feature Request'
     ]
-    # config.since_tag = '0.1.0'
+    config.enhancement_prefix = 'IMPROVEMENTS'
+    config.bug_labels = ['Type: Bug']
+    config.bug_prefix = 'BUG FIXES'
     config.future_release = "v#{Version.current.to_s}"
-    config.user = GITHUB_USERNAME
+    config.header = "# #{GITHUB_REPO} #{CHANGELOG}"
+    config.include_labels = [CHANGELOG]
+    config.merge_prefix = 'OTHER' # e.g. 'Type: Maintenance'
     config.project = GITHUB_REPO
+    config.user = GITHUB_USERNAME
   end # GitHubChangelogGenerator::RakeTask.new
 
   desc 'Update version in library properties file'
