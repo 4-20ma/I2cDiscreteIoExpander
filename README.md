@@ -84,10 +84,9 @@ o------o|12 GND   P10 13|o-     |
 
 
 ## Example
-The library contains sketches that demonstrates use of the `I2cDiscreteIoExpander` library. You can find these in the [examples](/4-20ma/I2cDiscreteIoExpander/tree/master/examples/) folder.
+The library contains sketches that demonstrates use of the `I2cDiscreteIoExpander` library. You can find these in the [examples](/examples/) folder.
 
 ``` cpp
-#include <Wire.h>
 #include <I2cDiscreteIoExpander.h>
 
 
