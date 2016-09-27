@@ -1,5 +1,16 @@
 # I2cDiscreteIoExpander CHANGELOG
 
+## [v4.0.1](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v4.0.1) (2016-09-27)
+[Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v4.0.0...v4.0.1)
+
+OTHER
+
+- Update header file caveat [\#40](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/40) ([4-20ma](https://github.com/4-20ma))
+- Fix README link, remove \#include [\#38](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/38) ([4-20ma](https://github.com/4-20ma))
+- Remove extraneous \#includes [\#36](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/36) ([4-20ma](https://github.com/4-20ma))
+- Update LICENSE copyright [\#34](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/34) ([4-20ma](https://github.com/4-20ma))
+- Streamline CHANGELOG entries, eliminate dupes [\#32](https://github.com/4-20ma/I2cDiscreteIoExpander/pull/32) ([4-20ma](https://github.com/4-20ma))
+
 ## [v4.0.0](https://github.com/4-20ma/I2cDiscreteIoExpander/tree/v4.0.0) (2016-09-24)
 [Full Changelog](https://github.com/4-20ma/I2cDiscreteIoExpander/compare/v3.0.1...v4.0.0)
 
