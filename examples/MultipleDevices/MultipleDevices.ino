@@ -22,7 +22,6 @@
 */
 
 
-#include <Wire.h>
 #include <I2cDiscreteIoExpander.h>
 
 
