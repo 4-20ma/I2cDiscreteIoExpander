@@ -58,7 +58,8 @@
 /// \par Schematic
 ///   \verbinclude SCHEMATIC
 /// \par Caveats
-///   Arduino 1.0 or later is required.
+///   Conforms to Arduino IDE 1.5 Library Specification v2.1 which requires
+///   Arduino IDE >= 1.5.
 /// \par Support
 /// Please [submit an issue](https://github.com/4-20ma/I2cDiscreteIoExpander/
 /// issues) for all questions, bug reports, and feature requests. Email
